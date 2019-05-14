@@ -1,0 +1,157 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@font-face {
+	font-family: 'Segoe Print';
+	font-style: normal;
+	font-weight: normal;
+	src: font-url('segoe_print.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Balonku Regular';
+	font-style: normal;
+	font-weight: normal;
+	src: font-url('Balonku-Regular.otf') format('opentype');
+}
+
+
+@font-face {
+	font-family: 'Kashima';
+	font-style: normal;
+	font-weight: normal;
+	src: font-url('Kashima-Demo.otf') format('opentype');
+}
+
+.home-body {
+	height: 100vh;
+	background-image: url(background.png);
+	background-size: cover;
+	background-position: 50% 100%;
+	background-blend-mode: soft-light;
+	background-color: rgba(255,255,255,0.3);
+}
+.home-container {
+	
+}
+.home-title {
+	padding-top: 50px;
+	max-width: 1200px;
+	text-align: center;
+	margin: 0 auto;	
+}
+.home-title-text {
+	
+}
+.home-img-landing {
+    width: 600px;
+    margin-bottom:10px;
+}
+
+
+@media (max-width: 1000px){
+	.home-img-landing {
+		width: 60vw;
+	}
+	.home-title-text {
+		width: 74.8vw;
+	}
+}
+@media (max-width: 760px){
+
+}
+
+
+
+.btn-home {
+	color: white;
+	border-radius: 5px;
+	font-size: 20px;
+	font-weight: bold;
+	border: none;
+	width: 300px;
+	height: 50px;
+	margin: 10px;
+	display: inline-block;
+}
+.home-btn-group {
+	max-width: 1170px;
+	text-align: center;
+	margin: 0px auto;
+}
+.btn-green {
+	background-color: #00b050;
+}
+.btn-yellow {
+	background-color: #ffc000;
+}
+.btn-pink {
+	background-color: #7030a0;
+}
+.btn-red {
+	background-color: #c42d54;
+}
+.btn-blue {
+	background-color: #00b0f0;
+}
+.footer {
+	font-family: Balonku Regular;
+	padding-top: 40px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 38px;
+	padding-bottom:40px;
+}
+.home-img-creater {
+	width: 780px;
+}
+.footer > p {
+	font-size: 22px;
+	color: #bbb7b7;
+	margin-top: 20px;
+	font-family: Arial;
+	display: block;
+}
+
+@media (max-width: 900px) {
+	.home-img-creater {
+		width: 86.7vw;
+	}	
+}
+@media (max-width: 600px) {
+	.footer > p {
+		font-size: 3.7vw;
+	}
+}
+
+@media (max-width: 350px) {
+	.btn-home {
+		width: 80vw;
+		height: 20vw;
+		font-size: 5vw;
+		display: inline-block;
+	}
+}
+
+
+@media (max-width: 833px) {
+	.footer {
+		font-size: 4.3vw;
+	}
+}
+
+.landing-video {
+	display: none;
+	width: 100%;
+	margin: 0 auto;
+	background-color: rgba(10,10,10,0.9);
+    position: fixed;
+    top: 0px;
+    height: 100%;
+}
+.landing-video iframe {
+	margin: 30vh auto;
+    width: 700px;
+    height: 292px;
+    display: block;
+}

@@ -1,0 +1,63 @@
+  [1m[35m (8.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (218.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS `Conquest_test`[0m
+  [1m[35m (56.8ms)[0m  [1m[35mCREATE DATABASE `Conquest_test` DEFAULT CHARACTER SET `utf8`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (95.0ms)[0m  [1m[35mDROP TABLE IF EXISTS `assets` CASCADE[0m
+  [1m[35m (152.4ms)[0m  [1m[35mCREATE TABLE `assets` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `question` varchar(255), `optionA` varchar(255), `optionB` varchar(255), `optionC` varchar(255), `optionD` varchar(255), `correctOption` varchar(255), `answer` varchar(400), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8[0m
+  [1m[35m (11.8ms)[0m  [1m[35mDROP TABLE IF EXISTS `credits` CASCADE[0m
+  [1m[35m (23.3ms)[0m  [1m[35mCREATE TABLE `credits` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `question` varchar(255), `optionA` varchar(255), `optionB` varchar(255), `optionC` varchar(255), `optionD` varchar(255), `correctOption` varchar(255), `answer` varchar(400), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8[0m
+  [1m[35m (1.4ms)[0m  [1m[35mDROP TABLE IF EXISTS `equities` CASCADE[0m
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE `equities` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `question` varchar(255), `optionA` varchar(255), `optionB` varchar(255), `optionC` varchar(255), `optionD` varchar(255), `correctOption` varchar(255), `answer` varchar(400), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS `incomes` CASCADE[0m
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE TABLE `incomes` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `question` varchar(255), `optionA` varchar(255), `optionB` varchar(255), `optionC` varchar(255), `optionD` varchar(255), `correctOption` varchar(255), `answer` varchar(400), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS `liabilities` CASCADE[0m
+  [1m[35m (60.8ms)[0m  [1m[35mCREATE TABLE `liabilities` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `question` varchar(255), `optionA` varchar(255), `optionB` varchar(255), `optionC` varchar(255), `optionD` varchar(255), `correctOption` varchar(255), `answer` varchar(400), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8[0m
+  [1m[35m (27.3ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (25.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (version) VALUES (20190425081842)[0m
+  [1m[35m (2.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (version) VALUES
+(20190425081415),
+(20190425081814),
+(20190425081831),
+(20190425075927);
+
+[0m
+  [1m[35m (14.9ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (12.1ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'test', '2019-05-05 09:27:41', '2019-05-05 09:27:41')[0m
+  [1m[35m (55.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.7ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixtures Load (2.8ms)[0m  [1m[31mDELETE FROM `equities`;
+DELETE FROM `credits`;
+DELETE FROM `assets`;
+DELETE FROM `incomes`;
+DELETE FROM `liabilities`;
+INSERT INTO `equities` (`id`, `question`, `optionA`, `optionB`, `optionC`, `optionD`, `correctOption`, `answer`, `created_at`, `updated_at`) VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2019-05-05 09:27:42', '2019-05-05 09:27:42'), (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2019-05-05 09:27:42', '2019-05-05 09:27:42');
+INSERT INTO `credits` (`id`, `question`, `optionA`, `optionB`, `optionC`, `optionD`, `correctOption`, `answer`, `created_at`, `updated_at`) VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2019-05-05 09:27:42', '2019-05-05 09:27:42'), (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2019-05-05 09:27:42', '2019-05-05 09:27:42');
+INSERT INTO `assets` (`id`, `question`, `optionA`, `optionB`, `optionC`, `optionD`, `correctOption`, `answer`, `created_at`, `updated_at`) VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2019-05-05 09:27:42', '2019-05-05 09:27:42'), (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2019-05-05 09:27:42', '2019-05-05 09:27:42');
+INSERT INTO `incomes` (`id`, `question`, `optionA`, `optionB`, `optionC`, `optionD`, `correctOption`, `answer`, `created_at`, `updated_at`) VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2019-05-05 09:27:42', '2019-05-05 09:27:42'), (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2019-05-05 09:27:42', '2019-05-05 09:27:42');
+INSERT INTO `liabilities` (`id`, `question`, `optionA`, `optionB`, `optionC`, `optionD`, `correctOption`, `answer`, `created_at`, `updated_at`) VALUES (980190962, 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2019-05-05 09:27:42', '2019-05-05 09:27:42'), (298486374, 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2019-05-05 09:27:42', '2019-05-05 09:27:42');
+[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Started GET "/home/index" for 127.0.0.1 at 2019-05-05 02:27:42 -0700
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (970.7ms)
+Completed 200 OK in 985ms (Views: 977.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m

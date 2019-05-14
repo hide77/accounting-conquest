@@ -1,0 +1,50 @@
+<div class="conquest-result-body">
+	<div class="conquest-container">
+		<div class="conquest-header">
+			<%= image_tag "header-title.png" , :class => "conquest-header-text" %>	
+		</div>
+		<div class="result-body">
+			<div class="result-content">
+				<div class="result-img">
+					<%= image_tag @test_name+"#{@exp_point/3}"+".png"%>
+				</div>
+				<div class="result-percent">
+					<div>Total: </div>
+					<div><%= (@exp_point.to_f*100/9).round %>%</div>
+				</div>
+				<div class="result-point">
+					<p>Level: <%= @exp_point/3 %>/3</p>
+					<p>Exp Points: <%= @exp_point %></p>
+					<h1><%= @conquest_title %></h1>
+				</div>
+			</div>
+			<bgsound src = "/assets/over.wav"/>
+			<% if (@exp_point.to_f*100/9).round >= 70 %>
+				<%= audio_tag "over.wav", :class => "audio-play" %>
+			<% else %>
+				<%= audio_tag "under.wav", :class => "audio-play" %>
+			<% end %>
+			<button class="btn-audioplay">play</button>
+			<div class="result-btn-next">
+				<%= image_tag "next.png" , :class => "result-img-next" %>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(()=>{
+		if($(".conquest-container").height()>$(".conquest-result-body").height())
+			$(".conquest-result-body").height($(".conquest-container").height());
+		$(window).resize(function(){
+			$("conquest-result-body").css('height','100vh');
+			if($(".conquest-container").height()>$(".conquest-result-body").height())
+				$(".conquest-result-body").height($(".conquest-container").height());
+		});
+		setTimeout(()=>{
+			$(".btn-audioplay").click();
+		},300)
+	})
+	$(".btn-audioplay").click(()=>{
+		$(".audio-play")[0].play();
+	})
+</script>

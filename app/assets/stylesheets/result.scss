@@ -1,0 +1,66 @@
+.result-body {
+	max-width: 950px;
+	padding-top: 100px;
+	margin: 0 auto;
+}
+.result-content {
+	width: max-content;
+	margin:0 auto;
+}
+.result-img {
+	display: inline-block;
+	width:300px;
+}
+.result-img > img {
+	display: block;
+	height: 300px;
+	margin: 0 auto;
+}
+.result-percent {
+	font-family: "Segoe Print";
+	color: black;
+	padding-left: 290px;
+	margin-top: -160px;
+}
+.result-percent > div:first-child {
+	font-size: 70px;
+	line-height: 100%;
+}
+.result-percent > div:last-child {
+	font-size: 120px;
+	line-height: 100%;
+}
+.result-point {
+	font-family: "Kashima";
+}
+.result-point > p {
+	font-size: 30px;
+	margin: 0;
+}
+.result-point > h1 {
+	font-size: 30px;
+	margin: 0;
+	color: rgb(0,176,80);
+}
+.btn-audioplay{
+	display: none;
+}
+.result-btn-next {
+	width: 100%;
+	margin-top: 80px;
+	text-align: right;
+}
+@media (max-width: 700px) {
+	.result-percent {
+		font-family: "Segoe Print";
+		color: black;
+		padding-left: unset;
+		margin-top: 30px;
+	}
+	.result-point {
+		margin-top: 30px;
+	}
+	.result-body {
+		padding-top: 100px
+	}
+}

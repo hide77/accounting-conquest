@@ -1,0 +1,393 @@
+// Place all the styles related to the Conquest controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.conquest-result-body {
+	height: 100vh;
+	background-image: url(background.png);
+	background-size: cover;
+	background-position: 50% 100%;
+	background-blend-mode: soft-light;
+	background-color: rgba(255,255,255,0.6);
+}
+.conquest-container {
+	color: black;
+}
+.conquest-header {
+	text-align: center;
+	padding-top: 30px;
+}
+.conquest-header-text {
+	
+}
+.conquest-body {
+	max-width: 1200px;
+	padding: 20px;
+	margin: 0 auto;
+}
+.conquest-content {
+	
+}
+.conquest-video-check {
+	display: flex;
+	justify-content: center;
+}
+.conquest-video {
+	height: 371px;
+	padding: 10px;
+	width: 860px;
+}
+
+.conquest-video iframe{
+	width: 100%;
+    height: 100%;
+    background-color: black;
+}
+
+.conquest-img-play {
+	display: block;
+    margin: 0 auto;
+    margin-top: 120px
+}
+.conquest-part-check {
+	width: 250px;
+}
+.conquest-part {
+	height: 350px;
+	padding-top: 30px;
+	font-family: "Kashima";
+}
+.conquest-part > div{
+	text-align: center;
+
+}
+.conquest-part > div > p{
+	font-size: 36px;
+	margin: 0px;
+}
+
+.conquest-check {
+
+}
+.conquest-img-check {
+	display: block;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+.conquest-img {
+	height: 300px;
+	padding: 0px;
+}
+.conquest-img-ninja {
+	display: block;
+    margin: 0 auto;
+    height: 300px;
+}
+.conquest-img-correct {
+	display:none;
+    margin: 0 auto;
+    height: 120px;
+    margin-top: 100px;
+}
+.conquest-img-wrong {
+	display:none;
+    margin: 0 auto;
+    height: 120px;
+    margin-top: 100px;
+}
+.conquest-question {
+	border: 2px solid black;
+	background-color: rgba(255,255,255,0.6);;
+	height: 300px;
+	padding: 30px;
+}
+.conquest-question > p {
+	font-size: 20px;
+	font-weight:650;
+}
+.conquest-question > div {
+	max-width: 720px;
+	margin: 0 auto;
+	margin-top: 50px;
+	text-align: center;
+}
+.conquest-question > div > button {
+	font-size: 14px;
+	text-align: center;
+	border-radius: 5px;
+	border: 2px solid black;
+	font-weight: 800;
+	background-color: transparent;
+	margin: 5px;
+	width:340px;
+	height:40px;
+}
+.conquest-question > div > .conquest-green-btn {
+	background-color: rgb(0,176,80);
+}
+.conquest-question > div > .conquest-red-btn {
+	background-color: rgb(255,0,0);
+}
+.conquest-point {
+	height: 100px;
+	padding-top: 5px;
+	font-family: "Kashima";
+}
+.conquest-point > p {
+	font-size: 36px;
+	margin: 0;
+	line-height: 30px;
+}
+.conquest-point > h1 {
+	font-size: 30px;
+	margin: 0;
+	color: rgb(0,176,80);
+	line-height: 30px;
+    padding-top: 5px;
+}
+.conquest-answer {
+	height: 100px;
+	font-size:15px;
+}
+.conquest-next {
+	display: inline-flex;
+}
+.conquest-img-next {
+	display: block;
+	width: 100px;
+	margin: auto auto;
+}
+.back-home-btn {
+	width: 100px;
+    font-size: 15px;
+    display: block;
+    height: 60px;
+    margin: auto auto;
+    background-color: rgb(240,240,240);
+    border: 1px solid black;
+}
+@media (max-width: 920px) {
+	.conquest-video {
+		height: 39vw;
+		padding: 10px;
+		width: 90vw;
+	}
+}
+@media (max-width: 575px) {
+	.conquest-header-text {
+		width: 90vw;
+		padding: 15px 0;
+	}
+	.conquest-video-check {
+		display: block;
+	}
+	.conquest-video {
+		margin: 0 auto;
+	}
+	.conquest-part-check {
+		width: 100%;
+	}
+	.conquest-part {
+		height: auto;
+		padding: 10px 10px 0 15vw;
+
+	}
+	
+	.conquest-part > div{
+		text-align: center;
+		margin-bottom: 30px;
+		display: inline-block;
+		margin: 10px 15px;
+	}
+	.conquest-part > div > p{
+		font-size: 5vw;
+		margin: 0px;
+	}
+	.conquest-check {
+		padding: 0 10px 0 15vw;
+	}
+	.conquest-img-check {
+		width: 13vw;
+		display: inline-block;
+	    margin: 0 15px 0 15px;
+	}
+	.conquest-question {
+		height: unset;
+	}
+	
+	.conquest-img-ninja {
+
+	}
+	.conquest-video div {
+	    margin-left: 3vw;
+	    width: 63vw;
+	}
+}
+
+@media (max-width: 1052px){
+	.conquest-question {
+	    height: unset;
+	}
+}
+
+@media (max-width: 767px) and (min-width: 576px){
+	.conquest-header-text {
+		width: 90vw;
+		padding: 15px 0;
+	}
+
+	.conquest-video div {
+	    margin-left: 3.8vw;
+	    width: 63vw;
+	}
+	.conquest-video-check {
+		display: block;
+	}
+	.conquest-video {
+		margin: 0 auto;
+	}
+	.conquest-part-check {
+		width: 100%;
+	}
+	.conquest-part {
+		text-align: center;
+		height: auto;
+		padding: 10px 10px;
+	}
+	
+	.conquest-part > div{
+		text-align: center;
+		margin-bottom: 30px;
+		display: inline-block;
+		margin: 10px 15px;
+	}
+	.conquest-part > div > p{
+		font-size: 3.5vw;
+		margin: 0px;
+	}
+	.conquest-check {
+		padding: 10px 0;
+	}
+	.conquest-img-check {
+		display: inline-block;
+	    margin: 15px 15px 0 15px;
+	}
+}
+@media (max-width: 996px) and (min-width: 768px){
+	.conquest-header-text {
+		width: 750px;
+		padding: 10px 0;
+	}
+	.conquest-video div {
+	    margin-left: 2vw;
+	    width: 32vw;
+	}
+	.conquest-video-check {
+		display: block;
+	}
+	.conquest-video {
+		margin: 0 auto;
+	}
+	.conquest-part-check {
+		width: 100%;
+	}
+	.conquest-part {
+		text-align: center;
+		height: auto;
+		padding: 10px 10px;
+	}
+	
+	.conquest-part > div{
+		text-align: center;
+		margin-bottom: 30px;
+		display: inline-block;
+		margin: 10px 15px;
+	}
+
+	.conquest-check {
+		padding: 10px 0;
+	}
+	.conquest-img-check {
+		display: inline-block;
+	    margin: 15px 15px 0 15px;
+	}
+}
+@media (max-width: 1070px) and (min-width: 997px){
+
+	.conquest-point > p{
+		font-size: 30px;
+		padding-bottom: 5px;
+	}
+	.conquest-point > h1{
+		font-size: 25px;
+	}
+
+	.conquest-video-check {
+		display: block;
+	}
+	.conquest-video {
+		margin: 0 auto;
+	}
+	.conquest-part-check {
+		width: 100%;
+	}
+	.conquest-part {
+		text-align: center;
+		height: auto;
+		padding: 10px 10px;
+	}
+	
+	.conquest-part > div{
+		text-align: center;
+		margin-bottom: 30px;
+		display: inline-block;
+		margin: 10px 15px;
+	}
+
+	.conquest-check {
+		padding: 10px 0;
+	}
+	.conquest-img-check {
+		display: inline-block;
+	    margin: 15px 15px 0 15px;
+	}
+}
+@media (max-width: 1220px) and (min-width: 1071px){
+
+	.conquest-video-check {
+		display: block;
+	}
+	.conquest-video {
+		margin: 0 auto;
+	}
+	.conquest-point > p{
+		font-size: 32px;
+		padding-bottom: 5px;
+	}
+	.conquest-point > h1{
+		font-size: 28px;
+	}
+	.conquest-part-check {
+		width: 100%;
+	}
+	.conquest-part {
+		text-align: center;
+		height: auto;
+		padding: 10px 10px;
+	}
+	
+	.conquest-part > div{
+		text-align: center;
+		margin-bottom: 30px;
+		display: inline-block;
+		margin: 10px 15px;
+	}
+
+	.conquest-check {
+		padding: 10px 0;
+	}
+	.conquest-img-check {
+		display: inline-block;
+	    margin: 15px 15px 0 15px;
+	}
+}

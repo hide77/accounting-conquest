@@ -1,0 +1,55 @@
+<div class="home-body">
+	<div class="home-container">
+		<div class="home-title">
+			<%= image_tag "landing-title.png" , :class => "home-title-text" %>	
+			<%= image_tag "group.png" , :class => "home-img-landing" %>	
+		</div>
+		<div class="home-btn-group">
+			<button class="btn-home btn-green">The Income Statement</button>
+			<button class="btn-home btn-yellow">Assets</button>
+			<button class="btn-home btn-pink">Liabilities</button>
+			<button class="btn-home btn-red">Owners' Equity</button>
+			<button class="btn-home btn-blue">Debits and Credits</button>
+		</div>
+		<div class="footer">
+			<a href="mailto:jameson@accountingconquest.com">
+				<%= image_tag "creater.png" , :class => "home-img-creater" %>	
+			</a>
+<!-- 			<p class="home-footer">Illustrated by Jonathan Herzog</p> -->
+		</div>
+	</div>
+	<!-- <div class="landing-video">
+		<iframe src="https://cdn.jwplayer.com/players/oOR6NJwe-BGOAXuhU.html" width="100%" height="100%" frameborder="0" scrolling="auto" allowfullscreen></iframe>
+	</div> -->
+</div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		if($(".home-container").height()>$(".home-body").height())
+			$(".home-body").height($(".home-container").height());
+		$(window).resize(function(){
+			$(".home-body").css('height','100vh');
+			if($(".home-container").height()>$(".home-body").height())
+			{
+				$(".home-body").height($(".home-container").height());
+			}
+		});
+	});
+	// var vid = $("video")[0];
+	// <% if(@videoViewed) %>
+	// 	setTimeout(function(){
+	// 		$(".landing-video").fadeIn(callback = function(){
+	// 			$.ajax({
+	// 				type: "POST",
+	// 				url: "home/videoViewed"
+	// 			})
+	// 		});
+	// 	},2000);
+	// <% end %>
+	// $(".landing-video").click(function(){
+	// 	$(".landing-video").fadeOut();
+	// 	$(".landing-video").html("");
+	// });
+	// $(".landing-video video").click(function(){
+	// 	event.stopPropagation();
+	// });
+</script>

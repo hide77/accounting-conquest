@@ -1,0 +1,244 @@
+<div class="conquest-result-body">
+	<div class="conquest-container">
+		<div class="conquest-header">
+			<%= image_tag "header-title.png" , :class => "conquest-header-text" %>	
+		</div>
+		<div class="conquest-body">
+			<div class="conquest-content conquest-video-check">
+				<div class="conquest-video">
+					<iframe src="https://cdn.jwplayer.com/players/oOR6NJwe-BGOAXuhU.html" width="100%" height="100%" frameborder="0" scrolling="auto" allowfullscreen></iframe>
+				</div>
+				<div class="conquest-part-check">
+					<div class="row">
+						<div class="conquest-part col-lg-7 col-md-7 col-sm-6">
+							<div>
+								<p>PART 1</p>
+								<p id="point1"><%= @point1 %>/3</p>
+							</div>
+							<div>
+								<p>PART 2</p>
+								<p id="point2"><%= @point2 %>/3</p>
+							</div>
+							<div>
+								<p>PART 3</p>
+								<p id="point3"><%= @point3 %>/3</p>
+							</div>
+						</div>
+						<div class="conquest-check col-lg-5 col-md-5 col-sm-6">
+							<% @cur_part.times do %>
+								<%= image_tag "checked.png" , :class => "conquest-img-check" %>		
+							<% end %>
+							<% if @cur_ques==2 and @cur_select!='0' %>
+								<%= image_tag "checked.png" , :class => "conquest-img-check" %>
+							<% end %>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="conquest-content row">
+				<div class="conquest-img col-lg-3 col-sm-12">
+					<%= audio_tag "correct.wav", :class => "audio-correct" %>
+					<%= audio_tag "wrong.wav", :class => "audio-wrong" %>
+					<%= image_tag "correct.gif" , :class => "conquest-img-correct" %>
+					<%= image_tag "wrong.gif" , :class => "conquest-img-wrong" %>
+					<div class="conquest-level-img">
+						<%= image_tag @test_name+"#{@exp_point/3}"+".png", :class => "conquest-img-ninja"%>
+					</div>
+				</div>
+				<div class="conquest-question col-lg-9 col-sm-12">
+					<p id="question"><%= @cur_ques+1 %>. <%= @data[@cur_part * 3 + @cur_ques].question %></p>
+					<div>
+						<button id="optionA" onclick="selectOption('A')"><%= @data[@cur_part * 3 + @cur_ques].optionA %></button>
+						<button id="optionB" onclick="selectOption('B')"><%= @data[@cur_part * 3 + @cur_ques].optionB %></button>
+						<button id="optionC" onclick="selectOption('C')"><%= @data[@cur_part * 3 + @cur_ques].optionC %></button>
+						<button id="optionD" onclick="selectOption('D')"><%= @data[@cur_part * 3 + @cur_ques].optionD %></button>
+					</div>
+				</div>
+			</div>
+			<div class="conquest-content row">
+				<div class="conquest-point col-lg-3 col-sm-12">
+					<p id="level">Level: <%= @exp_point/3 %>/3</p>
+					<p id="exp_point">Exp Points: <%= @exp_point %></p>
+					<h1><%= @conquest_title %></h1>
+				</div>
+				<div class="conquest-answer col-lg-6 col-sm-12">
+					<p id="correctAnswer"></p>
+				</div>
+				<div class="conquest-next col-lg-3 col-sm-12">
+					<button class="back-home-btn">Back to Homepage</button>
+					<%= image_tag "next.png" , :class => "conquest-img-next" %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	
+	var cur_select,cur_part,cur_ques,exp_point,point1,point2,point3,data,test_name, cur_level;
+	var soundplay = false;
+	var video_urls = { "income":["https://cdn.jwplayer.com/players/Xo0Scs73-BGOAXuhU.html","https://cdn.jwplayer.com/players/CB2hTUxy-BGOAXuhU.html","https://cdn.jwplayer.com/players/CLkpZAA5-BGOAXuhU.html"], "asset": ["https://cdn.jwplayer.com/players/Pvm6fTi8-BGOAXuhU.html","https://cdn.jwplayer.com/players/WsD9aeHs-BGOAXuhU.html","https://cdn.jwplayer.com/players/Ybtl16nH-BGOAXuhU.html"],"liability":["https://cdn.jwplayer.com/players/bgcLhtIp-BGOAXuhU.html","https://cdn.jwplayer.com/players/YNZHoY6e-BGOAXuhU.html","https://cdn.jwplayer.com/players/x2I6krkd-BGOAXuhU.html"],"equity":["https://cdn.jwplayer.com/players/EMmv3wtc-BGOAXuhU.html","https://cdn.jwplayer.com/players/aspZhaWh-BGOAXuhU.html","https://cdn.jwplayer.com/players/cNyQc0Fv-BGOAXuhU.html"],"credit":["https://cdn.jwplayer.com/players/waFEsJYH-BGOAXuhU.html","https://cdn.jwplayer.com/players/vZoTkwrQ-BGOAXuhU.html","https://cdn.jwplayer.com/players/oRZzt4u6-BGOAXuhU.html"]};
+	$(document).ready(function(){
+		if($(".conquest-container").height()>$(".conquest-result-body").height())
+			$(".conquest-result-body").height($(".conquest-container").height());
+		$(window).resize(function(){
+			$("conquest-result-body").css('height','100vh');
+			if($(".conquest-container").height()>$(".conquest-result-body").height())
+				$(".conquest-result-body").height($(".conquest-container").height());
+		});
+	});
+	initialize();
+	function initialize(){
+		test_name = '<%= @test_name %>';
+		cur_select = '<%= @cur_select %>';
+		cur_part = <%= @cur_part %>;
+		cur_ques = <%= @cur_ques %>;
+		exp_point = <%= @exp_point %>;
+		cur_level = <%= @exp_point/3 %>;
+		point1 = <%= @point1 %>;
+		point2 = <%= @point2 %>;
+		point3 = <%= @point3 %>;
+		$(".conquest-video iframe").attr('src',video_urls[test_name][cur_part]);
+		console.log(video_urls[test_name][cur_part]);
+		$.ajax({
+			type: "POST",
+			url: "./get_data",
+			data: { name: test_name },
+			success:function(res){
+				data = res;
+				var correctOption = data[cur_part*3+cur_ques].correctOption;
+				if(cur_select != '0'){
+					if(cur_select == correctOption)
+						$("#option"+cur_select).addClass("conquest-green-btn");
+					else {
+						$("#option"+cur_select).addClass("conquest-red-btn");
+						$("#option"+correctOption).addClass("conquest-green-btn");
+					}
+					$("#correctAnswer").html(data[cur_part*3+cur_ques].answer);
+				}
+			}
+		})
+	}		
+	
+	$(".conquest-img-next").click(function(){
+		if(cur_select == '0' || soundplay == true)
+			return;
+		$("#correctAnswer").html("");
+		cur_ques++;
+		if(cur_ques == 3){
+			cur_part ++;
+			$(".conquest-video iframe").attr('src',video_urls[test_name][cur_part]);
+			cur_ques = 0;
+		} 
+		cur_select = '0';
+		if(cur_part == 3){
+			location.href = "./result";
+			return;
+		}
+		saveState();
+		updateView(1);
+	});
+
+	function saveState(){
+		$.ajax({
+			type: "POST",
+			url: "./save_state",
+			data: {
+				cur_part: cur_part,
+				cur_ques: cur_ques,
+				cur_select: cur_select,
+				exp_point: exp_point,
+				point1: point1,
+				point2: point2,
+				point3: point3,
+				test_name: test_name
+			},
+			success:function(res){
+				console.log(res);
+			}
+		})
+	}
+	function updateView(type){
+		if(exp_point<3)
+			$(".conquest-level-img").html('<%= image_tag @test_name+"0.png" , :class => "conquest-img-ninja" %>');
+		else if(exp_point>=3 && exp_point<6)
+			$(".conquest-level-img").html('<%= image_tag @test_name+"1.png" , :class => "conquest-img-ninja" %>');
+		else if(exp_point>=6 && exp_point<9)
+			$(".conquest-level-img").html('<%= image_tag @test_name+"2.png" , :class => "conquest-img-ninja" %>');
+		else
+			$(".conquest-level-img").html('<%= image_tag @test_name+"3.png" , :class => "conquest-img-ninja" %>');
+		$("#level").html("Level: "+ Math.floor(exp_point/3)+"/3");
+		$("#exp_point").html("Exp Points: "+exp_point);
+		$("#point1").html(point1+"/3");
+		$("#point2").html(point2+"/3");
+		$("#point3").html(point3+"/3");
+		checkEle = "";
+		for(var i=0;i<cur_part;i++)
+			checkEle += '<%= image_tag "checked.png" , :class => "conquest-img-check" %>';		
+		if(cur_ques==2 && cur_select!='0'){
+			checkEle += '<%= image_tag "checked.png" , :class => "conquest-img-check" %>';
+		}
+		$(".conquest-check").html(checkEle); 
+
+		if(type==0)
+			return;
+		$("#question").html((cur_ques+1)+'. '+data[cur_part * 3 + cur_ques].question);
+		$("#optionA").html(data[cur_part * 3 + cur_ques].optionA);
+		$("#optionB").html(data[cur_part * 3 + cur_ques].optionB);
+		$("#optionC").html(data[cur_part * 3 + cur_ques].optionC);
+		$("#optionD").html(data[cur_part * 3 + cur_ques].optionD);
+		$(".conquest-question button").removeClass("conquest-green-btn conquest-red-btn");
+	}
+	function selectOption(param) {
+		if(cur_select != '0')
+			return;
+		var correctOption = data[cur_part*3+cur_ques].correctOption;
+		soundplay = true;
+		if(param == correctOption)
+		{
+			$("#option"+param).addClass("conquest-green-btn");
+			exp_point ++;
+
+			$(".audio-correct")[0].volume = 0.7;
+			$(".audio-correct")[0].play();
+			if(exp_point%3 == 0){
+				$(".conquest-level-img").css('display','none');
+				$(".conquest-img-correct").css('display','block');
+				setTimeout(function(){
+					$(".conquest-img-correct").css('display','none');
+					$(".conquest-level-img").css('display','block');
+					soundplay = false;
+				},1000);
+			} else {
+				$(".conquest-level-img").css('display','none');
+				$(".conquest-img-correct").css('display','block');
+				setTimeout(function(){
+					$(".conquest-img-correct").css('display','none');
+					$(".conquest-level-img").css('display','block');
+					soundplay = false;
+				},1000);
+			}
+
+			if(cur_part == 0)
+				point1++;
+			else if(cur_part == 1)
+				point2++;
+			else if(cur_part == 2)
+				point3++;
+		} else {
+			$(".audio-wrong")[0].play();
+			$("#option"+param).addClass("conquest-red-btn");
+			$("#option"+correctOption).addClass("conquest-green-btn");
+			$(".conquest-level-img").css('display','none');
+			$(".conquest-img-wrong").css('display','block');
+			setTimeout(function(){
+				$(".conquest-img-wrong").css('display','none');
+				$(".conquest-level-img").css('display','block');
+				soundplay = false;
+			},2000);
+		}
+		$("#correctAnswer").html(data[cur_part*3+cur_ques].answer);
+		cur_select = param;
+		saveState();
+		updateView(0);
+	}
+</script>
